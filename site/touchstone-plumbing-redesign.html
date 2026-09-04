@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Touchstone Plumbing | Austin since 1979</title>
+<style>
+:root{--pine:#1b4332;--pine2:#2d6a4f;--gold:#b08968;--gold2:#ddb892;--sand:#f5f1ea;--ink:#1c1917;--mute:#6b7280;--line:#e7e0d5;--paper:#fffcf7}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1100px,92vw);margin:0 auto}
+.reveal{opacity:0;transform:translateY(18px);transition:.65s ease}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+.nav{position:sticky;top:0;z-index:30;background:rgba(255,252,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0;gap:1rem}
+.logo{font-weight:800;letter-spacing:-.02em;color:var(--pine)}
+.logo span{color:var(--gold);font-weight:700}
+.nav ul{display:flex;gap:1.2rem;list-style:none;align-items:center;font-size:.92rem;color:#44403c}
+.btn{display:inline-flex;align-items:center;gap:.4rem;border-radius:999px;padding:.85rem 1.2rem;font-weight:750}
+.btn-g{background:var(--pine);color:#fff}
+.btn-o{background:transparent;border:1.5px solid var(--pine);color:var(--pine)}
+
+/* editorial hero */
+.hero{padding:3.5rem 0 2.5rem;background:
+  linear-gradient(90deg,rgba(27,67,50,.04) 1px,transparent 1px) 0 0/72px 72px,
+  linear-gradient(var(--sand),var(--paper))}
+.hero-grid{display:grid;grid-template-columns:1fr .85fr;gap:2.5rem;align-items:end}
+.kicker{font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.5rem);line-height:1.02;letter-spacing:-.04em;max-width:12ch;margin-bottom:1rem}
+.hero h1 em{font-style:normal;color:var(--pine2)}
+.lead{color:var(--mute);font-size:1.05rem;max-width:34rem;margin-bottom:1.4rem}
+.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:1.5rem}
+.meta{display:flex;flex-wrap:wrap;gap:.8rem}
+.meta span{background:#fff;border:1px solid var(--line);border-radius:12px;padding:.55rem .8rem;font-size:.84rem;color:#44403c}
+
+/* timeline rail */
+.timeline{position:relative;padding:1.2rem;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:0 24px 50px rgba(28,25,23,.08)}
+.timeline:before{content:"";position:absolute;left:28px;top:28px;bottom:28px;width:2px;background:linear-gradient(var(--gold),var(--pine))}
+.t-item{position:relative;padding:0 0 1.1rem 2.2rem}
+.t-item:last-child{padding-bottom:0}
+.t-item:before{content:"";position:absolute;left:21px;top:.35rem;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--pine)}
+.t-item strong{display:block;color:var(--pine)}
+.t-item span{font-size:.88rem;color:var(--mute)}
+
+.band{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding:1.4rem 0;border-bottom:1px solid var(--line)}
+.band div{text-align:center}
+.band b{display:block;font-size:1.25rem;color:var(--pine)}
+.band span{font-size:.82rem;color:var(--mute)}
+
+section{padding:4rem 0}
+.sec{max-width:560px;margin:0 auto 1.8rem;text-align:center}
+.sec h2{font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.03em;margin-bottom:.4rem}
+.sec p{color:var(--mute)}
+
+/* asymmetric services */
+.services{display:grid;grid-template-columns:1.2fr 1fr;gap:1rem}
+.s-main,.s-side article{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.3rem;box-shadow:0 12px 28px rgba(28,25,23,.04)}
+.s-main{min-height:100%;display:flex;flex-direction:column;justify-content:space-between;background:
+  linear-gradient(160deg,rgba(45,106,79,.08),transparent 50%),#fff}
+.s-side{display:grid;gap:1rem}
+.ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--sand);color:var(--pine);margin-bottom:.8rem}
+.ico svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.s-main h3,.s-side h3{margin-bottom:.35rem}
+.s-main p,.s-side p{color:var(--mute);font-size:.92rem}
+
+/* floating quote module */
+.quote-mod{margin-top:1.5rem;display:grid;grid-template-columns:1.1fr .9fr;gap:1rem}
+.q-card{background:var(--pine);color:#fff;border-radius:20px;padding:1.5rem;box-shadow:0 20px 40px rgba(27,67,50,.25);transform:translateY(0);transition:transform .3s ease}
+.q-card:hover{transform:translateY(-4px)}
+.q-card h3{font-size:1.3rem;margin-bottom:.5rem}
+.q-card p{color:#d8e6dc;margin-bottom:1rem}
+.q-card a{background:var(--gold2);color:var(--ink);border-radius:999px;padding:.7rem 1rem;font-weight:750;display:inline-block}
+.compare{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.2rem}
+.compare h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin-bottom:.7rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.bad,.good{border-radius:12px;padding:.8rem;font-size:.86rem}
+.bad{background:#f4efe8;color:#78716c;border:1px dashed #d6d3d1}
+.good{background:#ecf6f0;color:var(--pine);border:1px solid #b7d4c2}
+
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.rev{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.15rem}
+.rev .t{font-size:.72rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.rev p{color:#44403c;margin-bottom:.7rem}
+.rev b{font-size:.9rem;color:var(--pine)}
+
+.cta{background:linear-gradient(135deg,var(--pine),#081c15);color:#fff;text-align:center;padding:3.2rem 0;border-radius:0}
+.cta h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:.4rem}
+.cta p{color:#c5d5cb;margin-bottom:1.1rem}
+.cta .btn{background:var(--gold2);color:var(--ink)}
+
+footer{padding:2rem 0;text-align:center;color:#78716c;font-size:.88rem;background:#fff;border-top:1px solid var(--line)}
+footer strong{color:var(--ink)}
+.note{position:fixed;right:12px;bottom:12px;background:#1c1917;color:#fff;font-size:.72rem;padding:.45rem .65rem;border-radius:8px;opacity:.88;z-index:40}
+
+@media(max-width:900px){
+  .hero-grid,.services,.quote-mod,.reviews,.band,.row{grid-template-columns:1fr}
+  .nav ul li:not(:last-child){display:none}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <div class="logo">Touchstone <span>Plumbing</span></div>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#story">Since 1979</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a class="btn btn-g" href="tel:5124426389" style="padding:.6rem 1rem">(512) 442-6389</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker reveal">Matthews Lane · Austin, Texas</div>
+      <h1 class="reveal d1">Family plumbing since <em>1979</em>.</h1>
+      <p class="lead reveal d2">Repairs, remodels, sewer lines, water heaters, and commercial finish-outs from a shop older than most websites — finally presented like it.</p>
+      <div class="actions reveal d3">
+        <a class="btn btn-g" href="tel:5124426389">Call (512) 442-6389</a>
+        <a class="btn btn-o" href="mailto:jtouchstone@touchstoneplumbing.com">Email the shop</a>
+      </div>
+      <div class="meta reveal d3">
+        <span>Responsible Master Plumber on file</span>
+        <span>Residential + commercial</span>
+        <span>911 Matthews Lane</span>
+      </div>
+    </div>
+    <aside class="timeline reveal d2" id="story">
+      <div class="t-item"><strong>1979</strong><span>Family-owned shop opens in Austin</span></div>
+      <div class="t-item"><strong>Decades of local jobs</strong><span>Repairs, remodels, new construction, finish-outs</span></div>
+      <div class="t-item"><strong>Today</strong><span>Same reliability — with a site that does not show a fake 123-456-7890 quote number</span></div>
+      <div class="t-item"><strong>Next call</strong><span>Real phone, real estimate path, real humans</span></div>
+    </aside>
+  </div>
+</section>
+
+<div class="wrap band">
+  <div class="reveal"><b>1979</b><span>Established</span></div>
+  <div class="reveal d1"><b>Local</b><span>Austin crew</span></div>
+  <div class="reveal d2"><b>Same-day</b><span>When available</span></div>
+  <div class="reveal d3"><b>Licensed</b><span>TSBPE regulated</span></div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec reveal">
+      <h2>Work worth calling about</h2>
+      <p>Not a thin one-pager. A clear menu of what Touchstone actually does.</p>
+    </div>
+    <div class="services">
+      <article class="s-main reveal">
+        <div>
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg></div>
+          <h3>Residential &amp; commercial repairs</h3>
+          <p>Fast diagnosis and durable fixes when something fails mid-week and cannot wait for a form buried under a 2019 Wix footer.</p>
+        </div>
+        <div style="margin-top:1rem"><a class="btn btn-g" href="tel:5124426389">Call for service</a></div>
+      </article>
+      <div class="s-side">
+        <article class="reveal d1">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h3>Remodels &amp; new construction</h3>
+          <p>Rough-in through finish for homes, additions, and commercial finish-outs.</p>
+        </article>
+        <article class="reveal d2">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 14h6M14 14h6M10 14v-4a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v4"/></svg></div>
+          <h3>Sewer line repairs</h3>
+          <p>Options explained before the trench — not after the invoice.</p>
+        </article>
+        <article class="reveal d3">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+          <h3>Water heater install &amp; repair</h3>
+          <p>Repair-first thinking. Honest replace advice when the unit is done.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="quote-mod">
+      <div class="q-card reveal">
+        <h3>Need the crew out?</h3>
+        <p>No placeholder numbers. No 2019 dead ends. Call the Matthews Lane shop directly.</p>
+        <a href="tel:5124426389">(512) 442-6389</a>
+      </div>
+      <div class="compare reveal d2">
+        <h3>Site story</h3>
+        <div class="row">
+          <div class="bad">Old page: bare form, ©2019, quote number still set to 123-456-7890</div>
+          <div class="good">New path: real phone, service clarity, timeline proof, mobile CTAs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec reveal"><h2>Long-running trust</h2><p>Word-of-mouth themes from a shop that has been here for decades.</p></div>
+    <div class="reviews">
+      <article class="rev reveal"><div class="t">Customer note</div><p>"Fast, friendly, affordable — and they explained every charge."</p><b>Ilene L.</b></article>
+      <article class="rev reveal d1"><div class="t">Customer note</div><p>"On time, fixed the water heater, left the area clean."</p><b>South Austin</b></article>
+      <article class="rev reveal d2"><div class="t">Customer note</div><p>"Felt like hiring a neighbor who happens to be a master plumber."</p><b>Travis Heights</b></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap reveal">
+    <h2>Plumbing problem in Austin?</h2>
+    <p>Touchstone — real humans, real timelines, real phone numbers.</p>
+    <a class="btn" href="tel:5124426389">Call (512) 442-6389</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Touchstone Plumbing &amp; Heating</strong> · 911 Matthews Lane, Austin, TX 78745<br>
+    (512) 442-6389 · (512) 443-9799 · jtouchstone@touchstoneplumbing.com<br>
+    Regulated by TSBPE · Responsible Master Plumber on file</p>
+  </div>
+</footer>
+<div class="note">RedesignCo concept — not live</div>
+<script>
+(function(){var n=[].slice.call(document.querySelectorAll('.reveal'));if(!('IntersectionObserver'in window)){n.forEach(function(e){e.classList.add('in')});return}var i=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');i.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});n.forEach(function(e){i.observe(e)})})();
+</script>
+</body>
+</html>
